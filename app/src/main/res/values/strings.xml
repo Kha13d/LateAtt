@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">LateAtt</string>
+    <string-array name="spDAY">
+        <item>Sun</item>
+        <item>Mon</item>
+        <item>Teu</item>
+        <item>Wen</item>
+        <item>Thu</item>
+    </string-array>
+
+</resources>
