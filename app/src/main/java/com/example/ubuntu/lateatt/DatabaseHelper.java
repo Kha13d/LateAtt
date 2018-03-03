@@ -42,17 +42,19 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         contentValues.put(COL_4,time);
         contentValues.put(COL_5,delay);
         long result = db.insert(TableName,null,contentValues);
-        if (result == -1 )
-            return false;
-        else
-            return true;
+        if (result == -1 ) return false; else return true;
     }
 
     public Cursor getTable(){
-
         SQLiteDatabase db =this.getWritableDatabase();
-        Cursor res = db.rawQuery("select * from "+TableName,null);
-        return res;
+        Cursor result = db.rawQuery("select * from "+TableName,null);
+        return result;
+    }
+
+    public int deleteDelay(String ID){
+        SQLiteDatabase db = this.getWritableDatabase();
+        //db.execSQL("DELETE FROM " + TableName + "WHERE "+ COL_1 + " = '" + ID +"'");
+        return db.delete(TableName,"ID = ?", new String[] {ID});
     }
 }
 

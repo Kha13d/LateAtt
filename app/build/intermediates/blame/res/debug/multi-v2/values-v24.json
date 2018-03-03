@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/home/ubuntu/AndroidStudioProjects/LateAtt/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v24/values-v24.xml",
+            "outputFile": "C:\\Users\\zorom\\StudioProjects\\LateAtt\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v24\\values-v24.xml",
             "map": [
                 {
-                    "source": "/home/ubuntu/.gradle/caches/transforms-1/files-1.1/appcompat-v7-26.1.0.aar/35385ca46aefd3fc4521f00c8098457f/res/values-v24/values-v24.xml",
+                    "source": "C:\\Users\\zorom\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\b1d768bd00e50e330e96a341eff02fcb\\res\\values-v24\\values-v24.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7",
                         "startColumns": "4,4,4,4,4,4",
@@ -14,7 +14,7 @@
                     }
                 },
                 {
-                    "source": "/home/ubuntu/.gradle/caches/transforms-1/files-1.1/support-media-compat-26.1.0.aar/2bfa73224da24518c097d877b9156b32/res/values-v24/values-v24.xml",
+                    "source": "C:\\Users\\zorom\\.gradle\\caches\\transforms-1\\files-1.1\\support-media-compat-26.1.0.aar\\c838c010780631414f423691d5c45b4a\\res\\values-v24\\values-v24.xml",
                     "from": {
                         "startLines": "2,3,4,5",
                         "startColumns": "4,4,4,4",

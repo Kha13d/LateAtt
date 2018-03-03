@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/home/ubuntu/AndroidStudioProjects/LateAtt/app/build/intermediates/incremental/mergeDebugAndroidTestResources/merged.dir/values-v16/values-v16.xml",
+            "outputFile": "C:\\Users\\zorom\\StudioProjects\\LateAtt\\app\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values-v16\\values-v16.xml",
             "map": [
                 {
-                    "source": "/home/ubuntu/.gradle/caches/transforms-1/files-1.1/support-compat-26.1.0.aar/635e0a86db9023d9740f53ae5559fe38/res/values-v16/values-v16.xml",
+                    "source": "C:\\Users\\zorom\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-26.1.0.aar\\64ed9547220b3d344f9fac6eef163717\\res\\values-v16\\values-v16.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -14,7 +14,7 @@
                     }
                 },
                 {
-                    "source": "/home/ubuntu/.gradle/caches/transforms-1/files-1.1/appcompat-v7-26.1.0.aar/35385ca46aefd3fc4521f00c8098457f/res/values-v16/values-v16.xml",
+                    "source": "C:\\Users\\zorom\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\b1d768bd00e50e330e96a341eff02fcb\\res\\values-v16\\values-v16.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

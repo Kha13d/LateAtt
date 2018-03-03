@@ -1,6 +1,8 @@
 package com.example.ubuntu.lateatt;
 
+import android.content.Intent;
 import android.database.Cursor;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -13,12 +15,14 @@ import android.text.format.DateFormat;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 
 
 public class MainActivity extends AppCompatActivity {
 
     DatabaseHelper myDB;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,44 +30,19 @@ public class MainActivity extends AppCompatActivity {
 
         // Database
         myDB = new DatabaseHelper(this);
-        /** List
-        Spinner DD_DAY = findViewById(R.id.spDAY);
-        String[] items_DD_DAY = new String[]{"Sun","Mon","Tue","Wen","Thu"};
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item,items_DD_DAY);
-        DD_DAY.setAdapter(adapter);
+        TotalDelay();
 
+        // Add manuel entering data
 
-        Spinner spinner = (Spinner) findViewById(R.id.spDAY);
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.spDAY, android.R.layout.simple_spinner_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner.setAdapter(adapter);
-         **/
+    }
+
+    public void showHistory(View view){
+        Intent intent = new Intent(MainActivity.this,AttHistory.class);
+        startActivity(intent);
     }
 
     // Get The current time and display it as test !
     public void ButtonClick(View view) throws ParseException {
-        /**
-        TextView textView = findViewById(R.id.textView);
-        TextView textView2 = findViewById(R.id.textView2);
-        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
-        String CDT = sdf.format(new Date());
-        Date startDate = sdf.parse("08:30");
-        Date endDate = sdf.parse(CDT);
-
-        long difference = endDate.getTime() - startDate.getTime();
-        if(difference<0)
-        {
-            Date dateMax = sdf.parse("24:00");
-            Date dateMin = sdf.parse("00:00");
-            difference=(dateMax.getTime() -startDate.getTime() )+(endDate.getTime()-dateMin.getTime());
-        }
-        int days = (int) (difference / (1000*60*60*7.25));
-        int hours = (int) ((difference - (1000*60*60*7.25*days)) / (1000*60*60));
-        int min = (int) (difference - (1000*60*60*7.25*days) - (1000*60*60*hours)) / (1000*60);
-        textView.setText(CDT);
-        textView2.setText("Days: "+ days +" hours: "+ hours + " Min: "+ min);
-         **/
-
         TextView textView2 = findViewById(R.id.textView2);
         SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
 
@@ -95,22 +74,28 @@ public class MainActivity extends AppCompatActivity {
             int d_hours = (int) ((difference - (1000 * 60 * 60 * 24 * d_days)) / (1000 * 60 * 60));
             int d_min = (int) (difference - (1000 * 60 * 60 * 24 * d_days) - (1000 * 60 * 60 * d_hours)) / (1000 * 60);
             Boolean Added = myDB.insertData(DayofTheWeek,Day+" "+MonthofTheYear+" "+Year,Hour+":"+Mins,d_days+":"+d_hours+":"+d_min);
-            if (Added = true) {
-                Toast.makeText(getApplicationContext(),Added.toString(), Toast.LENGTH_SHORT).show();
-            } else {
-                Toast.makeText(getApplicationContext(), "Error!", Toast.LENGTH_SHORT).show();
+            if (Added = true) { Toast.makeText(getApplicationContext(),"Added!", Toast.LENGTH_SHORT).show(); }
+            else { Toast.makeText(getApplicationContext(), "Error!", Toast.LENGTH_SHORT).show();}
             }
-
-            }
-        //  Toast.makeText(getApplicationContext(),days+":"+hours+":"+min,Toast.LENGTH_SHORT).show();
-
+        TotalDelay();
     }
 
-    public void ViewHistory() { Fix it
-        Cursor res = myDB.getTable();
-        int a = res.getCount();
-        if (a == 0){Toast.makeText(getApplicationContext(),"0",Toast.LENGTH_SHORT).show();}
-        else {Toast.makeText(getApplicationContext(),"1",Toast.LENGTH_SHORT).show();}
+    public void TotalDelay(){
+        TextView textView = findViewById(R.id.textView);
+        Cursor cursor = myDB.getTable();
+        ArrayList<String> Delay = new ArrayList<>();
+        if (cursor.getCount() == 0){ Toast.makeText(getApplicationContext(),"The history is empty!",Toast.LENGTH_SHORT).show();}
+        else {
+            while (cursor.moveToNext()){
+                Delay.add(cursor.getString(4 ));
+            }
+        }
+
+        String[] DelayArray = new String[Delay.size()];
+        DelayArray = Delay.toArray(DelayArray);
+        textView.setText(DelayArray[0]);
+
+        // ADD the total Delay specific form see: https://stackoverflow.com/questions/2709253/converting-a-string-to-an-integer-on-android
     }
 
 }
