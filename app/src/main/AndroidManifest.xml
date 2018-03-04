@@ -17,6 +17,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".AttHistory"></activity>
+        <activity android:name=".addHistoty"></activity>
     </application>
 
 </manifest>

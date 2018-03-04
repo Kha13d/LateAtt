@@ -25,6 +25,7 @@
             </intent-filter>
         </activity>
         <activity android:name="com.example.ubuntu.lateatt.AttHistory" />
+        <activity android:name="com.example.ubuntu.lateatt.addHistoty" />
 
         <meta-data
             android:name="android.support.VERSION"
